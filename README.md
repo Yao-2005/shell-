@@ -54,3 +54,28 @@ systemctl status telnet.socket
 “配置文件所在位置：/etc/named.conf”
 ```
 
+## 3.升级Kafka的Zookeeper集群版本用到以下脚本：update_zookeeper.sh
+
+1.登录到Zookeeper集群服务器上逐台升级，创建并执行update_zookeeper.sh
+
+```
+#bash update_zookeeper.sh
+
+#升级后相关启停命令
+#zookeeper服务
+#systemctl start zookeeper.service 启动zookeeper服务
+#systemctl stop zookeeper.service 停止zookeeper服务
+#systemctl status zookeeper.service 查看zookeeper服务状态
+
+#kafka服务
+#systemctl start kafka.service 启动kafka服务
+#systemctl stop kafka.service 停止kafka服务
+#systemctl status kafka.service 查看kafka服务状态
+
+#查看Jetty版本
+#find lib -name "jetty-*.jar" -exec basename {} \; | sort
+查看zookeeper版本
+#/opt/zookeeper/bin/zkServer.sh version
+
+```
+
